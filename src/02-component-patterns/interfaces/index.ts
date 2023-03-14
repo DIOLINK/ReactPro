@@ -1,8 +1,10 @@
-import { ReactElement } from 'react';
+import { CSSProperties, ReactElement } from 'react';
 
 export interface ProductCardProps {
   product: Product;
   children?: ReactElement | ReactElement[];
+  className?: string;
+  style?: CSSProperties;
 }
 export interface Product {
   id: string;
@@ -21,4 +23,21 @@ export interface ProductCardHOCProps {
   Title: ({ title }: { title?: string }) => JSX.Element;
   Image: ({ img }: { img?: string }) => JSX.Element;
   Buttons: () => JSX.Element;
+}
+
+export interface ProductTitleProps {
+  className?: string;
+  title?: string;
+  style?: CSSProperties;
+}
+
+export interface ProductButtonProps {
+  className?: string;
+  style?: CSSProperties;
+}
+
+export interface ProductImageProps {
+  className?: string;
+  img?: string;
+  style?: CSSProperties;
 }
