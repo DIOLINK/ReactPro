@@ -15,7 +15,6 @@ code {
     monospace;
 }
 
-
 .main-layout {
   display: flex;
   flex-direction: row;
@@ -27,7 +26,7 @@ nav {
   margin-right: 15px;
   overflow-y: auto;
   text-align: center;
-  width: 250px;
+  width: clamp(150px, 20vw - 20px, 250px);
 }
 
 nav ul {
@@ -51,5 +50,5 @@ nav li a {
 
 .nav-active {
   color: grey;
-  transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
 }

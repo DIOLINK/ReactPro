@@ -1,10 +1,12 @@
 import { CSSProperties, ReactElement } from 'react';
 
 export interface ProductCardProps {
-  product: Product;
   children?: ReactElement | ReactElement[];
   className?: string;
+  onChange?: (args: onChangesArgs) => void;
+  product: Product;
   style?: CSSProperties;
+  value?: number;
 }
 export interface Product {
   id: string;
@@ -13,7 +15,7 @@ export interface Product {
 }
 
 export interface ProductContextProps {
-  counter: number;
+  count: number;
   increaseBy: (value: number) => void;
   product: Product;
 }
@@ -40,4 +42,19 @@ export interface ProductImageProps {
   className?: string;
   img?: string;
   style?: CSSProperties;
+}
+
+export interface ProductInCart extends Product {
+  count: number;
+}
+
+export interface onChangesArgs {
+  product: Product;
+  count: number;
+}
+
+export interface useProductArg {
+  onChange?: (args: onChangesArgs) => void;
+  product: Product;
+  value?: number;
 }
