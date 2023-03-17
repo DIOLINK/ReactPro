@@ -19,8 +19,14 @@ export const ProductCard = ({
   product,
   style,
   value,
+  initialValues,
 }: ProductCardProps) => {
-  const { count, increaseBy } = useProduct({ onChange, product, value });
+  const { count, increaseBy, maxCount, isMaxCountReached, reset } = useProduct({
+    onChange,
+    product,
+    value,
+    initialValues,
+  });
 
   return (
     <Provider
@@ -28,10 +34,18 @@ export const ProductCard = ({
         count,
         increaseBy,
         product,
+        maxCount,
       }}
     >
       <div className={`${styles.productCard} ${className}`} style={style}>
-        {children}
+        {children({
+          count,
+          isMaxCountReached,
+          product,
+          maxCount,
+          increaseBy,
+          reset,
+        })}
       </div>
     </Provider>
   );

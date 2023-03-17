@@ -1,6 +1,6 @@
 import { Product } from '../interfaces';
 
-const product1 = {
+export const product1 = {
   id: '1',
   title: 'Coffee-Mug Card',
   img: './coffee-mug.png',
